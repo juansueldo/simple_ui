@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <title>Inicio</title>
+</head>
+<body id="background-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom shadow-sm">
+        <div class="container">
+          <a class="navbar-brand" href="#">MiApp</a>
+          <div class="d-flex align-items-center">
+            <!-- Dropdown del usuario -->
+            <div class="dropdown">
+              <a class="d-flex align-items-center text-decoration-none dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://i.pravatar.cc/40" alt="Usuario" width="40" height="40" class="rounded-circle me-2" />
+                <span class="fw-semibold">Juan Sueldo</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end shadow mt-2" aria-labelledby="userDropdown">
+                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                <li><a class="dropdown-item" href="#">Configuración</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item text-danger" href="#">Cerrar sesión</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </nav>
+      
+    <main>
+        <div class="container" style="max-width: 4320px;">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="card shadow p-4 border-0 rounded-4">
+                        <h3 class="text-center mb-4">Bienvenido</h3>
+                        <div class="d-flex justify-content-between gap-2 mb-4" style="height: 120px;">
+                            <a  class="btn btn-outline-danger w-100 text-center" href="/hunger/index.html">
+                                <i class="bi bi-google me-2"></i><span>Ahorcado</span>
+                            </a>
+                            <a  class="btn btn-outline-primary w-100" href="/mayor/index.html">
+                                <i class="bi bi-google me-2"></i><span>Mayor o menor</span>
+                            </a>
+                        </div>
+
+                        <div class="d-flex justify-content-between gap-2 mb-4" style="height: 120px;">
+
+                            <a  class="btn btn-outline-success w-100" href="/quiz/index.html">
+                                <i class="bi bi-google me-2"></i><span>Preguntados</span>
+                            </a>
+                            <a  class="btn btn-outline-warning w-100" href="/battle/index.html">
+                                <i class="bi bi-facebook me-2"></i><span>Cards</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Chat Box -->
+    <div id="chatBox" class="chat-box shadow rounded-4 d-none">
+        <div class="chat-header d-flex justify-content-between align-items-center p-2 border-bottom">
+            <strong>Soporte</strong>
+            <button class="btn btn-sm btn-light" onclick="toggleChat()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        <div class="chat-body p-3" style="height: 200px; overflow-y: auto;">
+            <div><strong>Agente:</strong> ¡Hola! ¿Cómo puedo ayudarte?</div>
+        </div>
+        <div class="chat-footer p-2 border-top d-flex">
+            <input type="text" class="form-control me-2" placeholder="Escribe algo..." />
+            <button class="btn btn-primary"><i class="bi bi-send"></i></button>
+        </div>
+    </div>
+  
+    <!-- Botón flotante de chat -->
+    <button class="btn btn-primary rounded-circle shadow chat-btn" onclick="toggleChat()">
+        <i class="bi bi-chat-dots-fill fs-4"></i>
+    </button>
+    <footer class="bg-dark text-center py-3 border-top">
+        <small class="text-muted">&copy; 2025 Juan Sueldo. Todos los derechos reservados.</small>
+    </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script>
+    function toggleChat() {
+        const chatBox = document.getElementById('chatBox');
+        chatBox.classList.toggle('d-none');
+    }
+    const wrapper = document.getElementById("background-wrapper");
+
+    const buttons = [
+        { selector: '.btn-outline-danger', className: 'bg-ahorcado' },
+        { selector: '.btn-outline-primary', className: 'bg-mayor' },
+        { selector: '.btn-outline-success', className: 'bg-preguntados' },
+        { selector: '.btn-outline-warning', className: 'bg-cards' },
+    ];
+
+    buttons.forEach(({ selector, className }) => {
+        const btn = document.querySelector(selector);
+        btn.addEventListener('mouseenter', () => {
+            wrapper.classList.remove('bg-ahorcado', 'bg-mayor', 'bg-preguntados', 'bg-cards');
+            wrapper.classList.add(className);
+        });
+        btn.addEventListener('mouseleave', () => {
+            wrapper.classList.remove(className);
+        });
+    });
+
+  </script>
+</body>
+</html>

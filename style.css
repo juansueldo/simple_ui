@@ -1,0 +1,64 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa; 
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-dark{
+    background: #212121 !important;
+}
+ 
+.bg-dark small{
+    color: #f8f9fa !important;
+}
+
+.chat-btn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 1050;
+}
+
+.chat-box {
+    position: fixed;
+    bottom: 150px;
+    right: 20px;
+    width: 400px;
+    background-color: #fff;
+    z-index: 1050;
+}
+
+#background-wrapper {
+    transition: background 0.4s ease;
+    min-height: 100vh;
+}
+  
+.bg-ahorcado {
+    background: linear-gradient(135deg, #ffcccc, #ffe6e6);
+}
+  
+.bg-mayor {
+    background: linear-gradient(135deg, #cce0ff, #e6f0ff);
+}
+  
+.bg-preguntados {
+    background: linear-gradient(135deg, #ccffe6, #e6fff5);
+}
+  
+.bg-cards {
+    background: linear-gradient(135deg, #fff5cc, #fffbe6);
+}
+  
